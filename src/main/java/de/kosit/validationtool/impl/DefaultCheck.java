@@ -82,8 +82,8 @@ public class DefaultCheck implements Check {
         this.repository = new ScenarioRepository(this.contentRepository);
         this.repository.initialize(configuration);
         this.checkSteps = new ArrayList<>();
-        this.checkSteps.add(DefaultCheck::createDocumentIdentification);
         this.checkSteps.add(new DocumentParseAction());
+        this.checkSteps.add(DefaultCheck::createDocumentIdentification);
         this.checkSteps.add(new ScenarioSelectionAction(this.repository));
         this.checkSteps.add(new SchemaValidationAction());
         this.checkSteps.add(new SchematronValidationAction(configuration.getScenarioRepository(), this.conversionService));

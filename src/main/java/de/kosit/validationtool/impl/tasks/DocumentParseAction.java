@@ -19,7 +19,6 @@
 
 package de.kosit.validationtool.impl.tasks;
 
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Collections;
@@ -61,7 +60,7 @@ public class DocumentParseAction implements CheckAction {
             throw new IllegalArgumentException("Input may not be null");
         }
         Result<XdmNode, XMLSyntaxError> result;
-        try ( final InputStream input = new ByteArrayInputStream(content.getContent()) ) {
+        try ( final InputStream input = content.openStream() ) {
             final DocumentBuilder builder = ObjectFactory.createProcessor().newDocumentBuilder();
             builder.setLineNumbering(true);
             final XdmNode doc = builder.build(new StreamSource(input));

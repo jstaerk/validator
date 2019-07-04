@@ -37,8 +37,8 @@ import net.sf.saxon.s9api.XdmNode;
  * 
  * @author Andreas Penski
  */
-public class Helper {
 
+public class Helper {
     public static class Simple {
 
         public static final URI ROOT = EXAMPLES_DIR.resolve("simple/");
