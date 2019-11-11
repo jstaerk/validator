@@ -6,7 +6,7 @@ variables:
 
 before_script:
   - export CI_JOB_TIMESTAMP="-Dbuild.timestamp=$(date --utc --iso-8601=seconds)"
-  -
+
 build-amazoncorretto:
   stage: build
   image: maven:amazoncorretto
